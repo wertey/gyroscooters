@@ -179,6 +179,7 @@ export default {
         transform: skewY(-5deg);
         padding: 60px 20px;
         color: $secondColor;
+        border-radius: 5px;
         &__header-title, &__header-desc {
           text-align: center;
         }
