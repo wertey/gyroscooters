@@ -35,6 +35,11 @@
             input(type="text" placeholder="1234567").lp-header-main-form__content-input.lp-header-main-form__content-input_number
           .lp-header-main-form__wrap
             button.lp-header-main-form__btn Перезвонить мне
+          .lp-header-main-footer
+            .lp-header-main-footer__info На складе осталось менее:
+          .lp-header-main-amount
+              img.lp-header-main-amount__img(src='../assets/images/goods.png')
+              .lp-header-main-amount__text Моделей
 
 </template>
 
@@ -55,7 +60,8 @@ export default {
     width: 100%;
     background: url(../assets/images/headerbg.jpg)no-repeat;
     background-size: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 1100px;
     padding-top: 65px;
     &__title {
       font-family: 'Open Sans',sans-serif;
@@ -176,6 +182,24 @@ export default {
         &__header-title, &__header-desc {
           text-align: center;
         }
+        &__wrap {
+            transform: skewY(5deg);
+        }
+        &__btn {
+            width: 100%;
+            border-radius: 10px;
+            color: $main-color;
+            font-size: 23px;
+            line-height: 56px;
+            background: $bgOfBtn;
+            font-family: 'Open Sans Bold',sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .3s ease-in;
+            &:hover {
+                background: $btnHover;
+            }
+        }
         &__header {
           transform: skewY(5deg);
           &-title {
@@ -199,6 +223,9 @@ export default {
             color: $inputPlaceholderColor;
             margin-bottom: 10px;
             font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
             &_code {
               width: 15%;
               margin-right: 10px;
@@ -218,6 +245,30 @@ export default {
             justify-content: flex-start;
           }
         }
+      }
+      &-footer {
+          transform: skewY(5deg);
+          text-align: center;
+          padding-top: 33px;
+          padding-bottom: 30px;
+          &__info {
+              font-size: 22px;
+              line-height: 23px;
+              font-family: 'Open Sans',sans-serif;
+          }
+      }
+      &-amount {
+          transform: translateX(-50%)skewY(5deg);
+          position: absolute;
+          text-align: center;
+          left: 50%;
+          &__text {
+              font-size: 12px;
+              text-align: center;
+              text-transform: uppercase;
+              color: $mainTitleColor;
+              font-family: 'Open Sans',sans-serif;
+          }
       }
     }
   }
