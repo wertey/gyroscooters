@@ -12,18 +12,17 @@
 </template>
 
 <script>
-    import Slick from 'vue-slick';
     export default {
         name: "GoodsTemplate",
         components: {
-            Slick
+
         },
     }
 </script>
 
 <style scoped lang="scss">
     @import '../assets/scss/core.scss';
-    import 'node_modules/slick-carousel/slick/slick.css';
+
 
     .lp-goods {
         width: 100%;
