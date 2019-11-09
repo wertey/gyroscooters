@@ -1,0 +1,111 @@
+<template lang="pug">
+    .lp-duty
+        .lp-container
+            h2.lp-duty__title Как мы работаем
+            .lp-duty-row
+                .lp-duty-row__item(v-for="(item,index) in steps" :key="index")
+                    .lp-duty-row__item-img
+                        img(:src="item.img")
+                    .lp-duty-row__item-step(:class="{'lp-duty-row__item-step_active': item.active === true}") {{ item.step }}
+                    .lp-duty-row__item-text(:class="{'lp-duty-row__item-text_active': item.active === true}") {{ item.text }}
+</template>
+
+<script>
+    export default {
+        name: "ScheduleTemplate",
+        data() {
+            return {
+                steps: [
+                    {
+                        img: require('../assets/images/order.png'),
+                        step: 'ШАГ 1',
+                        text: 'Оставьте заявку на товар или консультацию',
+                        active: false,
+                    },
+                    {
+                        img: require('../assets/images/call.png'),
+                        step: 'ШАГ 2',
+                        text: 'В течении 3-х минут с Вами свяжется наш менеджер для согласования заказа',
+                        active: false,
+                    },
+                    {
+                        img: require('../assets/images/delivery.png'),
+                        step: 'ШАГ 3',
+                        text: 'Вежливый курьер доставит посылку в срок, учитывая все предпочтения',
+                        active: false,
+                    },
+                    {
+                        img: require('../assets/images/smile.png'),
+                        step: 'ШАГ 4',
+                        text: 'Вы получаете кучу положительных эмоций от покупки, а также гарантию в 1 год',
+                        active: true,
+                    }
+                ]
+            }
+        }
+    }
+</script>
+
+<style scoped lang="scss">
+    @import '../assets/scss/core.scss';
+    .lp-duty {
+        width: 100%;
+        background: url(../assets/images/stepsbg.png)no-repeat;
+        min-height: 600px;
+        padding-top: 50px;
+        padding-bottom: 60px;
+        &__title {
+            text-align: center;
+            font-size: 40px;
+            line-height: 46px;
+            color: $secondColor;
+        }
+        &-row {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            padding-top: 75px;
+            font-family: 'Open Sans',sans-serif;
+            &__item {
+                position: relative;
+                width: 25%;
+                text-align: center;
+                &:after {
+                    position: absolute;
+                    content: '';
+                    width: 69px;
+                    height: 9px;
+                    right: -34px;
+                    top: 59px;
+                    background: url(../assets/images/circles.png)no-repeat;
+                }
+                &:last-child:after {
+                    display: none;
+                }
+                &-step {
+                    text-transform: uppercase;
+                    color: $colorOfSteps;
+                    font-size: 18px;
+                    line-height: 24px;
+                    padding-top: 10px;
+                    &_active {
+                        color: $colorOfActiveSteps;
+                    }
+                }
+                &-img {
+                    min-height: 106px;
+                }
+                &-text {
+                    color: $textOfSteps;
+                    font-size: 16px;
+                    line-height: 24px;
+                    text-align: center;
+                    padding-top: 20px;
+                    &_active {
+                        color: $colorOfActiveSteps;
+                    }
+                }
+            }
+        }
+    }
+</style>

@@ -4,6 +4,7 @@
     GiftTemplate
     GoodsTemplate
     HelpTemplate
+    ScheduleTemplate
     FilialsTemplate
     FooterTemplate
 
@@ -14,6 +15,7 @@ import HeaderTemplate from './components/HeaderTemplate.vue';
 import GiftTemplate from './components/GiftTemplate.vue';
 import GoodsTemplate from './components/GoodsTemplate.vue';
 import HelpTemplate from './components/HelpTemplate.vue';
+import ScheduleTemplate from './components/ScheduleTemplate.vue';
 import FilialsTemplate from './components/FilialsTemplate.vue';
 import FooterTemplate from './components/FooterTemplate.vue';
 
@@ -24,8 +26,9 @@ export default {
     GiftTemplate,
     GoodsTemplate,
     HelpTemplate,
+    ScheduleTemplate,
     FilialsTemplate,
-      FooterTemplate,
+    FooterTemplate,
   },
 };
 </script>
