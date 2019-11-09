@@ -29,7 +29,7 @@
                         .lp-goods-top-row__item-text.lp-goods-top-row__item-text_vers Гироскоп Ver 3.0
                         .lp-goods-top-row__item-text.lp-goods-top-row__item-text_last Последняя версия материнской платы
                 h3.lp-goods-top__flip До завершения распродажи осталось:
-                FlipCountdown(deadline="2019-12-25 00:00:00")
+                FlipCountdown.lp-goods-top__countdown(deadline="2019-12-25 00:00:00")
 </template>
 
 <script>
@@ -109,6 +109,7 @@ import FlipCountdown from 'vue2-flip-countdown';
 
     .lp-goods {
         width: 100%;
+        padding-bottom: 85px;
         &__title {
             padding-top: 90px;
         }
