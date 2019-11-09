@@ -8,6 +8,11 @@
                         img(:src="item.img")
                     .lp-duty-row__item-step(:class="{'lp-duty-row__item-step_active': item.active === true}") {{ item.step }}
                     .lp-duty-row__item-text(:class="{'lp-duty-row__item-text_active': item.active === true}") {{ item.text }}
+            .lp-duty-call
+                .lp-duty-call__arrow
+                    img(src="../assets/images/arrow.png")
+                .lp-duty-call-button
+                    button.lp-duty-call-button__btn Перевозвонить мне
 </template>
 
 <script>
@@ -54,6 +59,37 @@
         min-height: 600px;
         padding-top: 50px;
         padding-bottom: 60px;
+        &-call {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            &__arrow {
+                padding-top: 20px;
+                padding-left: 126px;
+            }
+            &-button {
+                text-align: center;
+                align-items: center;
+                display: flex;
+                padding-top: 62px;
+                padding-left: 28px;
+                &__btn {
+                    height: 50px;
+                    padding: 0 30px;
+                    color: $secondColor;
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    font-family: 'Open Sans',sans-serif;
+                    border-radius: 30px;
+                    background: $submitBgColor;
+                    transition: all .3s ease-in;
+                    cursor: pointer;
+                    &:hover {
+                        background: $SubmitHoverBg;
+                    }
+                }
+            }
+        }
         &__title {
             text-align: center;
             font-size: 40px;
