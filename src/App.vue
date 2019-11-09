@@ -4,6 +4,7 @@
     GiftTemplate
     GoodsTemplate
     HelpTemplate
+    FilialsTemplate
 
 </template>
 
@@ -12,6 +13,7 @@ import HeaderTemplate from './components/HeaderTemplate.vue';
 import GiftTemplate from './components/GiftTemplate.vue';
 import GoodsTemplate from './components/GoodsTemplate.vue';
 import HelpTemplate from './components/HelpTemplate.vue';
+import FilialsTemplate from './components/FilialsTemplate.vue';
 
 export default {
   name: 'app',
@@ -20,6 +22,7 @@ export default {
     GiftTemplate,
     GoodsTemplate,
     HelpTemplate,
+    FilialsTemplate,
   },
 };
 </script>
