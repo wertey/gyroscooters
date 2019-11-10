@@ -4,6 +4,7 @@
     GiftTemplate
     GoodsTemplate
     HelpTemplate
+    ReviewTemplate
     ScheduleTemplate
     FilialsTemplate
     FooterTemplate
