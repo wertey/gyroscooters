@@ -1,9 +1,10 @@
 <template lang="pug">
     .lp-goods
         .lp-container
-            h2.lp__title lp-goods__title Каталог детских гироскутеров
+            h2.lp__title.lp-goods__title Каталог детских гироскутеров
             .lp-goods-row
-                .lp-goods-row__item
+                .lp-goods-row__item(v-for="(slide,index) in slides" :key="index")
+                    h4.lp-goods-row__item-title {{ slide.title }}
                     agile.lp-goods-row__item-slider(ref="main" :options="options1" :as-nav-for="asNavFor1")
                         .lp-goods-row__item-slide(v-for="(slide, index) in slides", :key="index", :class="`slide--${index}`")
                             img.lp-goods-row__item-img(:src="slide.src")
@@ -14,6 +15,16 @@
                             i.fas.fa-chevron-left
                         template(slot="nextButton")
                             i.fas.fa-chevron-right
+                    .lp-goods-row__item-checkbox
+                    .lp-goods-row__item-price 39 800 р.
+                    .lp-goods-row__item-button заказать
+                    .lp-goods-row__item-amount На складе осталось: 8 шт
+                    .lp-goods-row__advantages
+                        .lp-goods-row__advantages-item(v-for="(item,index) in slide.advantages" :key="index")
+                            img(:src="item.src")
+                            .lp-goods-row__advantages-title {{ item.title }}
+                            .lp-goods-row__advantages-info {{ item.parametrs }}
+
             .lp-goods-top
                 h2.lp-goods-top__title Хит Продаж
                 h3.lp-goods-top__desc Smart Wheel SUV ULTRA
@@ -85,19 +96,135 @@ import FlipCountdown from 'vue2-flip-countdown';
                 slides: [
                     {
                         src: require('../assets/images/item1.jpg'),
+                        title: 'Smart Wheel SUV',
+                        advantages: [
+                            {
+                                src: require('../assets/images/advantage1.png'),
+                                title: 'запас хода',
+                                parametrs: '20 км'
+                            },
+                            {
+                                src: require('../assets/images/advantage2.png'),
+                                title: 'колеса',
+                                parametrs: '25 см'
+                            },
+                            {
+                                src: require('../assets/images/advantage3.png'),
+                                title: 'скорость',
+                                parametrs: '15 км/ч'
+                            },
+                            {
+                                src: require('../assets/images/advantage4.png'),
+                                title: 'вес',
+                                parametrs: '13.5 кг'
+                            },
+                        ]
                     },
                     {
                         src: require('../assets/images/11.jpg'),
+                        title: 'Smart Wheel SUV',
+                        advantages: [
+                            {
+                                src: require('../assets/images/advantage1.png'),
+                                title: 'запас хода',
+                                parametrs: '20 км'
+                            },
+                            {
+                                src: require('../assets/images/advantage2.png'),
+                                title: 'колеса',
+                                parametrs: '25 см'
+                            },
+                            {
+                                src: require('../assets/images/advantage3.png'),
+                                title: 'скорость',
+                                parametrs: '15 км/ч'
+                            },
+                            {
+                                src: require('../assets/images/advantage4.png'),
+                                title: 'вес',
+                                parametrs: '13.5 кг'
+                            },
+                        ]
                     },
                     {
                         src: require('../assets/images/12.jpg'),
+                        title: 'Smart Wheel SUV',
+                        advantages: [
+                            {
+                                src: require('../assets/images/advantage1.png'),
+                                title: 'запас хода',
+                                parametrs: '20 км'
+                            },
+                            {
+                                src: require('../assets/images/advantage2.png'),
+                                title: 'колеса',
+                                parametrs: '25 см'
+                            },
+                            {
+                                src: require('../assets/images/advantage3.png'),
+                                title: 'скорость',
+                                parametrs: '15 км/ч'
+                            },
+                            {
+                                src: require('../assets/images/advantage4.png'),
+                                title: 'вес',
+                                parametrs: '13.5 кг'
+                            },
+                        ]
                     },
                     {
                         src: require('../assets/images/14.jpg'),
+                        title: 'Smart Wheel SUV',
+                        advantages: [
+                            {
+                                src: require('../assets/images/advantage1.png'),
+                                title: 'запас хода',
+                                parametrs: '20 км'
+                            },
+                            {
+                                src: require('../assets/images/advantage2.png'),
+                                title: 'колеса',
+                                parametrs: '25 см'
+                            },
+                            {
+                                src: require('../assets/images/advantage3.png'),
+                                title: 'скорость',
+                                parametrs: '15 км/ч'
+                            },
+                            {
+                                src: require('../assets/images/advantage4.png'),
+                                title: 'вес',
+                                parametrs: '13.5 кг'
+                            },
+                        ]
                     },
                     {
                         src: require('../assets/images/15.jpg'),
+                        title: 'Smart Wheel SUV',
+                        advantages: [
+                            {
+                                src: require('../assets/images/advantage1.png'),
+                                title: 'запас хода',
+                                parametrs: '20 км'
+                            },
+                            {
+                                src: require('../assets/images/advantage2.png'),
+                                title: 'колеса',
+                                parametrs: '25 см'
+                            },
+                            {
+                                src: require('../assets/images/advantage3.png'),
+                                title: 'скорость',
+                                parametrs: '15 км/ч'
+                            },
+                            {
+                                src: require('../assets/images/advantage4.png'),
+                                title: 'вес',
+                                parametrs: '13.5 кг'
+                            },
+                        ]
                     },
+
                 ]
             }
         },
@@ -110,8 +237,6 @@ import FlipCountdown from 'vue2-flip-countdown';
 
 <style scoped lang="scss">
     @import '../assets/scss/core.scss';
-
-
     .lp-goods {
         width: 100%;
         padding-bottom: 85px;
@@ -123,10 +248,27 @@ import FlipCountdown from 'vue2-flip-countdown';
             flex-direction: row;
             justify-content: flex-start;
             padding-top: 60px;
+            flex-wrap: wrap;
+            &__advantages {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
             &__item {
-                border: 1px solid red;
                 width: 33%;
                 height: 600px;
+                max-width: 340px;
+                background: url(../assets/images/itembg.png)no-repeat;
+                background-position: top;
+                background-color: $secondColor;
+                padding-top: 20px;
+                text-align: center;
+                &-title {
+                    font-size: 18px;
+                    line-height: 46px;
+                    color: $main-color;
+                    font-family: 'Open Sans',sans-serif;
+                }
                 &-slide {
                     &--thumbniail {
                         img {
@@ -139,6 +281,8 @@ import FlipCountdown from 'vue2-flip-countdown';
                     max-width: 300px;
                     height: auto;
                     object-fit: cover;
+                    margin: 0 auto;
+                    display: flex;
                 }
                 & + & {
                     margin-left: 10px;
@@ -305,4 +449,14 @@ import FlipCountdown from 'vue2-flip-countdown';
             }
         }
     }
+
+    .agile__list {
+        text-align: center;
+    }
+
+    .lp-goods-row__item-slide {
+        max-width: 340px!important;
+    }
+
+
 </style>
