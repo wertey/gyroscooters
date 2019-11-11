@@ -24,6 +24,11 @@
                         .lp-goods-top-row__item-text.lp-goods-top-row__item-text_battary Батарея Samsung
                     .lp-goods-top-row__item.lp-goods-top-row__item_img
                         img(src="../assets/images/topitem.png")
+                        .lp-goods-top-price
+                            .lp-goods-top-price__nums.lp-goods-top-price__nums_first 100 000
+                            .lp-goods-top-price__nums.lp-goods-top-price__nums_second 80 000
+                            .lp-goods-top-price__nums.lp-goods-top-price__nums_final 29 990 р.
+                            .lp-goods-top-price__button заказать
                     .lp-goods-top-row__item.lp-goods-top-row__item_right
                         .lp-goods-top-row__item-text.lp-goods-top-row__item-text_year Бестселлер 2015
                         .lp-goods-top-row__item-text.lp-goods-top-row__item-text_vers Гироскоп Ver 3.0
@@ -144,6 +149,74 @@ import FlipCountdown from 'vue2-flip-countdown';
             width: 100%;
             padding-top: 70px;
             text-align: center;
+            &-price {
+                position: absolute;
+                right: 0;
+                bottom: 8px;
+                &__nums {
+                    font-family: 'Open Sans',sans-serif;
+                    font-size: 18px;
+                    line-height: 10px;
+                    color: $mainTitleColor;
+                    position: relative;
+                    &:after {
+                        position: absolute;
+                        content: '';
+                        background: $mainTitleColor;
+                        height: 2px;
+                    }
+                    &_first {
+                        &:after {
+                            width: 80px;
+                            left: 55px;
+                            top: 4px;
+                        }
+                    }
+                    &_second {
+                        margin-top: 10px;
+                        font-size: 28px;
+                        line-height: 10px;
+                        &:after {
+                            width: 100px;
+                            left: 42px;
+                            top: 5px;
+                        }
+                    }
+                    &_final {
+                        padding-top: 10px;
+                        color: $priceColor;
+                        font-size: 44px;
+                        line-height: 44px;
+                        font-weight: bold;
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+                &__button {
+                    background: $submitBgColor;
+                    color: $secondColor;
+                    padding: 0 20px 0 40px;
+                    height: 48px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 24px;
+                    line-height: 60px;
+                    position: relative;
+                    border-radius: 30px;
+                    margin-top: 15px;
+                    &:before {
+                        position: absolute;
+                        content: '';
+                        background: url(../assets/images/cart.png)no-repeat;
+                        width: 25px;
+                        height: 19px;
+                        left: 21px;
+                    }
+                }
+            }
             &__title {
                 font-family: 'Open Sans Bold', sans-serif;
                 font-size: 60px;
@@ -182,6 +255,7 @@ import FlipCountdown from 'vue2-flip-countdown';
                     &_img {
                         padding-top: 100px;
                         width: 60%;
+                        position: relative;
                         img {
                             max-width: 470px;
                             height: auto;
