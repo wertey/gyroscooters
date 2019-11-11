@@ -4,6 +4,7 @@
     GiftTemplate
     GoodsTemplate
     HelpTemplate
+    DifferentTemplate
     MoviesTemplate
     ChildrenTemplate
     ReviewTemplate
@@ -20,6 +21,7 @@ import GoodsTemplate from './components/GoodsTemplate.vue';
 import HelpTemplate from './components/HelpTemplate.vue';
 import ReviewTemplate from './components/ReviewTemplate.vue';
 import ScheduleTemplate from './components/ScheduleTemplate.vue';
+import DifferentTemplate from './components/DifferentTemplate.vue';
 import MoviesTemplate from './components/MoviesTemplate.vue';
 import ChildrenTemplate from './components/ChildrenTemplate.vue';
 import FilialsTemplate from './components/FilialsTemplate.vue';
@@ -31,6 +33,7 @@ export default {
     HeaderTemplate,
     GiftTemplate,
     GoodsTemplate,
+    DifferentTemplate,
     MoviesTemplate,
     HelpTemplate,
     ReviewTemplate,
