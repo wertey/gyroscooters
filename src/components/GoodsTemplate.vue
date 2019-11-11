@@ -3,27 +3,29 @@
         .lp-container
             h2.lp__title.lp-goods__title Каталог детских гироскутеров
             .lp-goods-row
-                .lp-goods-row__item(v-for="(slide,index) in slides" :key="index")
-                    h4.lp-goods-row__item-title {{ slide.title }}
-                    agile.lp-goods-row__item-slider(ref="main" :options="options1" :as-nav-for="asNavFor1")
-                        .lp-goods-row__item-slide(v-for="(slide, index) in slides", :key="index", :class="`slide--${index}`")
-                            img.lp-goods-row__item-img(:src="slide.src")
-                    agile.lp-goods-row__item-thumbnails(ref="thumbnails" :options="options2" :as-nav-for="asNavFor2")
-                        .lp-goods-row__item-slide.lp-goods-row__item-slide--thumbniail(v-for="(slide, index) in slides", :key="index", :class="`slide--${index}`" @click="$refs.thumbnails.goTo(index)")
-                            img(:src="slide.src")
-                        template(slot="prevButton")
-                            i.fas.fa-chevron-left
-                        template(slot="nextButton")
-                            i.fas.fa-chevron-right
-                    .lp-goods-row__item-checkbox
-                    .lp-goods-row__item-price 39 800 р.
-                    .lp-goods-row__item-button заказать
-                    .lp-goods-row__item-amount На складе осталось: 8 шт
-                    .lp-goods-row__advantages
-                        .lp-goods-row__advantages-item(v-for="(item,index) in slide.advantages" :key="index")
-                            img(:src="item.src")
-                            .lp-goods-row__advantages-title {{ item.title }}
-                            .lp-goods-row__advantages-info {{ item.parametrs }}
+                .lp-goods-row__wrap(v-for="(slide,index) in slides" :key="index")
+                    .lp-goods-row__item
+                        h4.lp-goods-row__item-title {{ slide.title }}
+                        agile.lp-goods-row__item-slider(ref="main" :options="options1" :as-nav-for="asNavFor1")
+                            .lp-goods-row__item-slide(v-for="(slide, index) in slides", :key="index", :class="`slide--${index}`")
+                                img.lp-goods-row__item-img(:src="slide.src")
+                        agile.lp-goods-row__item-thumbnails(ref="thumbnails" :options="options2" :as-nav-for="asNavFor2")
+                            .lp-goods-row__item-slide.lp-goods-row__item-slide--thumbniail(v-for="(slide, index) in slides", :key="index", :class="`slide--${index}`" @click="$refs.thumbnails.goTo(index)")
+                                img(:src="slide.src")
+                            template(slot="prevButton")
+                                i.fas.fa-chevron-left
+                            template(slot="nextButton")
+                                i.fas.fa-chevron-right
+                        .lp-goods-row__item-checkbox
+                            input(type="radio" name="colors")
+                        .lp-goods-row__item-price 39 800 р.
+                        .lp-goods-row__item-button заказать
+                        .lp-goods-row__item-amount На складе осталось: 8 шт
+                        .lp-goods-row__advantages
+                            .lp-goods-row__advantages-item(v-for="(item,index) in slide.advantages" :key="index")
+                                img(:src="item.src")
+                                .lp-goods-row__advantages-title {{ item.title }}
+                                .lp-goods-row__advantages-info {{ item.parametrs }}
 
             .lp-goods-top
                 h2.lp-goods-top__title Хит Продаж
@@ -246,23 +248,99 @@ import FlipCountdown from 'vue2-flip-countdown';
         &-row {
             display: flex;
             flex-direction: row;
-            justify-content: flex-start;
+            justify-content: center;
             padding-top: 60px;
             flex-wrap: wrap;
             &__advantages {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
+                padding-top: 30px;
+                &-title {
+                    margin-top: 20px;
+                    font-size: 10px;
+                    text-transform: uppercase;
+                    color: $inputPlaceholderColor;
+                    font-family: 'Open Sans Bold',sans-serif;
+                }
+                &-item {
+                    padding: 15px;
+                }
+                &-info {
+                    margin-top: 10px;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: $inputPlaceholderColor;
+                    font-family: 'Open Sans Bold',sans-serif;
+                    font-weight: bold;
+                }
+                img {
+                    min-height: 39px;
+                }
+            }
+            &__wrap {
+                width: 33%;
+                margin-bottom: 20px;
             }
             &__item {
-                width: 33%;
-                height: 600px;
                 max-width: 340px;
                 background: url(../assets/images/itembg.png)no-repeat;
                 background-position: top;
                 background-color: $secondColor;
                 padding-top: 20px;
                 text-align: center;
+                &-amount {
+                    position: relative;
+                    font-size: 15px;
+                    line-height: 46px;
+                    color: $main-color;
+                    &:after {
+                        position: absolute;
+                        content: '';
+                        width: 100px;
+                        height: 2px;
+                        background: $itemBgColor;
+                        bottom: -20px;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        font-weight: bold;
+                    }
+                }
+                &-price {
+                    font-family: 'Open Sans',sans-serif;
+                    font-size: 28px;
+                    line-height: 46px;
+                    color: $priceColor;
+                }
+                &-button {
+                    background: $submitBgColor;
+                    color: $secondColor;
+                    padding: 0 20px 0 40px;
+                    height: 48px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 24px;
+                    line-height: 60px;
+                    position: relative;
+                    border-radius: 30px;
+                    transition: all .3s ease-in;
+                    cursor: pointer;
+                    max-width: 200px;
+                    margin: 15px auto 0;
+                    &:hover {
+                        background: $SubmitHoverBg;
+                    }
+                    &:before {
+                        position: absolute;
+                        content: '';
+                        background: url(../assets/images/cart.png)no-repeat;
+                        width: 25px;
+                        height: 19px;
+                        left: 21px;
+                    }
+                }
                 &-title {
                     font-size: 18px;
                     line-height: 46px;
@@ -283,9 +361,6 @@ import FlipCountdown from 'vue2-flip-countdown';
                     object-fit: cover;
                     margin: 0 auto;
                     display: flex;
-                }
-                & + & {
-                    margin-left: 10px;
                 }
             }
         }
@@ -351,6 +426,11 @@ import FlipCountdown from 'vue2-flip-countdown';
                     position: relative;
                     border-radius: 30px;
                     margin-top: 15px;
+                    transition: all .3s ease-in;
+                    cursor: pointer;
+                    &:hover {
+                        background: $SubmitHoverBg;
+                    }
                     &:before {
                         position: absolute;
                         content: '';
@@ -457,6 +537,5 @@ import FlipCountdown from 'vue2-flip-countdown';
     .lp-goods-row__item-slide {
         max-width: 340px!important;
     }
-
 
 </style>
