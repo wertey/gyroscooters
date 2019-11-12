@@ -5,8 +5,8 @@
             .lp-goods-row
                 .lp-goods-row__wrap(v-for="(slide,index) in slides" :key="index")
                     .lp-goods-row__item
-                        .lp-goods-row__item-hit
-                        .lp-goods-row__item-sale
+                        .lp-goods-row__item-hit(v-if="slide.hit") ХИТ
+                        .lp-goods-row__item-sale(v-if="slide.discount") -{{ slide.discount }}%
                         h4.lp-goods-row__item-title {{ slide.title }}
                         agile.lp-goods-row__item-slider(ref="main" :options="options1" :as-nav-for="asNavFor1")
                             .lp-goods-row__item-slide(v-for="(slide, index) in slides", :key="index", :class="`slide--${index}`")
@@ -19,23 +19,14 @@
                             template(slot="nextButton")
                                 i.fas.fa-chevron-right
                         .lp-goods-row__item-checkbox
-                            label.radio
+                            label.radio(v-for="(color,index) in slide.colors" :key="index")
                                 input(type="radio" name="radio")
                                 span.check
-                            label.radio
-                                input(type="radio" name="radio")
-                                span.check
-                            label.radio
-                                input(type="radio" name="radio")
-                                span.check
-                            label.radio
-                                input(type="radio" name="radio")
-                                span.check
-                        .lp-goods-row__item-price 39 800 р.
+                        .lp-goods-row__item-price {{ slide.price }} р.
                         .lp-goods-row__item-button заказать
                         .lp-goods-row__item-amount
                             span На складе осталось:
-                            span 8 шт
+                            span {{ slide.amount }} шт
                         .lp-goods-row__advantages
                             .lp-goods-row__advantages-item(v-for="(item,index) in slide.advantages" :key="index")
                                 img(:src="item.src")
@@ -114,6 +105,26 @@ import FlipCountdown from 'vue2-flip-countdown';
                     {
                         src: require('../assets/images/item1.jpg'),
                         title: 'Smart Wheel SUV',
+                        price: '39 800',
+                        hit: true,
+                        amount: '8',
+                        colors: [
+                            {
+                                color: 'green'
+                            },
+                            {
+                                color: 'blue'
+                            },
+                            {
+                                color: 'orange'
+                            },
+                            {
+                                color: 'white'
+                            },
+                            {
+                                color: 'black'
+                            },
+                        ],
                         advantages: [
                             {
                                 src: require('../assets/images/advantage1.png'),
@@ -139,7 +150,19 @@ import FlipCountdown from 'vue2-flip-countdown';
                     },
                     {
                         src: require('../assets/images/item1.jpg'),
-                        title: 'Smart Wheel SUV',
+                        title: 'Smart Wheel SUV ULTRA',
+                        price: '44 900',
+                        discount: '8',
+                        hit: true,
+                        amount: '8',
+                        colors: [
+                            {
+                                color: 'black'
+                            },
+                            {
+                                color: 'yellow'
+                            },
+                        ],
                         advantages: [
                             {
                                 src: require('../assets/images/advantage1.png'),
@@ -165,7 +188,27 @@ import FlipCountdown from 'vue2-flip-countdown';
                     },
                     {
                         src: require('../assets/images/11.jpg'),
-                        title: 'Smart Wheel SUV',
+                        title: 'Smart Balance Transformers LED',
+                        price: '37 500',
+                        discount: '9',
+                        amount: '8',
+                        colors: [
+                            {
+                                color: 'red'
+                            },
+                            {
+                                color: 'white'
+                            },
+                            {
+                                color: 'purpul'
+                            },
+                            {
+                                color: 'blue'
+                            },
+                            {
+                                color: 'black'
+                            },
+                        ],
                         advantages: [
                             {
                                 src: require('../assets/images/advantage1.png'),
@@ -191,7 +234,26 @@ import FlipCountdown from 'vue2-flip-countdown';
                     },
                     {
                         src: require('../assets/images/12.jpg'),
-                        title: 'Smart Wheel SUV',
+                        title: 'Smart Balance Transformers',
+                        price: '35 600',
+                        amount: '8',
+                        colors: [
+                            {
+                                color: 'red'
+                            },
+                            {
+                                color: 'white'
+                            },
+                            {
+                                color: 'purple'
+                            },
+                            {
+                                color: 'blue'
+                            },
+                            {
+                                color: 'black'
+                            },
+                        ],
                         advantages: [
                             {
                                 src: require('../assets/images/advantage1.png'),
@@ -217,7 +279,27 @@ import FlipCountdown from 'vue2-flip-countdown';
                     },
                     {
                         src: require('../assets/images/14.jpg'),
-                        title: 'Smart Wheel SUV',
+                        title: 'Smart Balance Wheel Bluetooth',
+                        price: '29 990',
+                        discount: '11',
+                        amount: '8',
+                        colors: [
+                            {
+                                color: 'blue'
+                            },
+                            {
+                                color: 'red'
+                            },
+                            {
+                                color: 'white'
+                            },
+                            {
+                                color: 'yellow'
+                            },
+                            {
+                                color: 'black'
+                            },
+                        ],
                         advantages: [
                             {
                                 src: require('../assets/images/advantage1.png'),
@@ -243,7 +325,24 @@ import FlipCountdown from 'vue2-flip-countdown';
                     },
                     {
                         src: require('../assets/images/15.jpg'),
-                        title: 'Smart Wheel SUV',
+                        title: 'Smart Balance Wheel',
+                        discount: '19',
+                        amount: '8',
+                        colors: [
+                            {
+                                color: 'black'
+                            },
+                            {
+                                color: 'white'
+                            },
+                            {
+                                color: 'red'
+                            },
+                            {
+                                color: 'green'
+                            }
+                        ],
+                        price: '27 680',
                         advantages: [
                             {
                                 src: require('../assets/images/advantage1.png'),
@@ -340,7 +439,13 @@ import FlipCountdown from 'vue2-flip-countdown';
                     z-index: 10;
                     left: 7px;
                     top: 33px;
-                    color: $secondColor;
+                    color: $colorOfHit;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: 'Open Sans Bold',sans-serif;
+                    font-weight: bold;
+                    font-size: 17px;
                 }
                 &-sale {
                     background: $submitBgColor;
@@ -352,6 +457,11 @@ import FlipCountdown from 'vue2-flip-countdown';
                     z-index: 10;
                     color: $secondColor;
                     border-radius: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: 'Open Sans',sans-serif;
+                    font-size: 20px;
                 }
                 &-amount {
                     position: relative;
