@@ -5,6 +5,8 @@
             .lp-goods-row
                 .lp-goods-row__wrap(v-for="(slide,index) in slides" :key="index")
                     .lp-goods-row__item
+                        .lp-goods-row__item-hit
+                        .lp-goods-row__item-sale
                         h4.lp-goods-row__item-title {{ slide.title }}
                         agile.lp-goods-row__item-slider(ref="main" :options="options1" :as-nav-for="asNavFor1")
                             .lp-goods-row__item-slide(v-for="(slide, index) in slides", :key="index", :class="`slide--${index}`")
@@ -17,10 +19,23 @@
                             template(slot="nextButton")
                                 i.fas.fa-chevron-right
                         .lp-goods-row__item-checkbox
-                            input(type="radio" name="colors")
+                            label.radio
+                                input(type="radio" name="radio")
+                                span.check
+                            label.radio
+                                input(type="radio" name="radio")
+                                span.check
+                            label.radio
+                                input(type="radio" name="radio")
+                                span.check
+                            label.radio
+                                input(type="radio" name="radio")
+                                span.check
                         .lp-goods-row__item-price 39 800 р.
                         .lp-goods-row__item-button заказать
-                        .lp-goods-row__item-amount На складе осталось: 8 шт
+                        .lp-goods-row__item-amount
+                            span На складе осталось:
+                            span 8 шт
                         .lp-goods-row__advantages
                             .lp-goods-row__advantages-item(v-for="(item,index) in slide.advantages" :key="index")
                                 img(:src="item.src")
@@ -96,6 +111,32 @@ import FlipCountdown from 'vue2-flip-countdown';
                 },
 
                 slides: [
+                    {
+                        src: require('../assets/images/item1.jpg'),
+                        title: 'Smart Wheel SUV',
+                        advantages: [
+                            {
+                                src: require('../assets/images/advantage1.png'),
+                                title: 'запас хода',
+                                parametrs: '20 км'
+                            },
+                            {
+                                src: require('../assets/images/advantage2.png'),
+                                title: 'колеса',
+                                parametrs: '25 см'
+                            },
+                            {
+                                src: require('../assets/images/advantage3.png'),
+                                title: 'скорость',
+                                parametrs: '15 км/ч'
+                            },
+                            {
+                                src: require('../assets/images/advantage4.png'),
+                                title: 'вес',
+                                parametrs: '13.5 кг'
+                            },
+                        ]
+                    },
                     {
                         src: require('../assets/images/item1.jpg'),
                         title: 'Smart Wheel SUV',
@@ -289,6 +330,29 @@ import FlipCountdown from 'vue2-flip-countdown';
                 background-color: $secondColor;
                 padding-top: 20px;
                 text-align: center;
+                padding-bottom: 40px;
+                position: relative;
+                &-hit {
+                    background: url(../assets/images/hit.png)no-repeat;
+                    width: 80px;
+                    height: 80px;
+                    position: absolute;
+                    z-index: 10;
+                    left: 7px;
+                    top: 33px;
+                    color: $secondColor;
+                }
+                &-sale {
+                    background: $submitBgColor;
+                    width: 67px;
+                    height: 67px;
+                    position: absolute;
+                    right: 7px;
+                    top: 33px;
+                    z-index: 10;
+                    color: $secondColor;
+                    border-radius: 100%;
+                }
                 &-amount {
                     position: relative;
                     font-size: 15px;
@@ -305,12 +369,29 @@ import FlipCountdown from 'vue2-flip-countdown';
                         transform: translate(-50%,-50%);
                         font-weight: bold;
                     }
+                    span {
+                        font-size: 15px;
+                        color: $main-color;
+                        font-family: 'Open Sans',sans-serif;
+
+                        &:last-child {
+                            font-weight: bold;
+                            margin-left: 5px;
+                            font-family: 'Open Sans Bold',sans-serif;
+                        }
+                    }
                 }
                 &-price {
                     font-family: 'Open Sans',sans-serif;
                     font-size: 28px;
                     line-height: 46px;
                     color: $priceColor;
+                }
+                &-checkbox {
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
                 &-button {
                     background: $submitBgColor;
@@ -537,5 +618,66 @@ import FlipCountdown from 'vue2-flip-countdown';
     .lp-goods-row__item-slide {
         max-width: 340px!important;
     }
+
+    .radio {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* hide the browser's default radio button */
+    .radio input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    /* create custom radio */
+    .radio .check {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: red;
+        border-radius: 50%;
+    }
+
+    /* add background color when the radio is checked */
+    .radio input:checked ~ .check {
+        background-color: white;
+        border: 1px solid gray;
+    }
+
+    /* create the radio and hide when not checked */
+    .radio .check:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* show the radio when checked */
+    .radio input:checked ~ .check:after {
+        display: block;
+
+    }
+
+    /* radio style */
+    .radio .check:after {
+        top: 4px;
+        left: 4px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: red;
+    }
+
 
 </style>
