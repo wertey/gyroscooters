@@ -742,14 +742,12 @@ import FlipCountdown from 'vue2-flip-countdown';
         user-select: none;
     }
 
-    /* hide the browser's default radio button */
     .radio input {
         position: absolute;
         opacity: 0;
         cursor: pointer;
     }
 
-    /* create custom radio */
     .radio .check {
         position: absolute;
         top: 0;
@@ -759,26 +757,22 @@ import FlipCountdown from 'vue2-flip-countdown';
         border-radius: 50%;
     }
 
-    /* add background color when the radio is checked */
     .radio input:checked ~ .check {
         background-color: white;
         border: 1px solid gray;
     }
 
-    /* create the radio and hide when not checked */
     .radio .check:after {
         content: "";
         position: absolute;
         display: none;
     }
 
-    /* show the radio when checked */
     .radio input:checked ~ .check:after {
         display: block;
 
     }
 
-    /* radio style */
     .radio .check:after {
         top: 4px;
         left: 4px;
@@ -786,6 +780,5 @@ import FlipCountdown from 'vue2-flip-countdown';
         height: 15px;
         border-radius: 50%;
     }
-
 
 </style>
