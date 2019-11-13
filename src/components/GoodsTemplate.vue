@@ -21,7 +21,7 @@
                         .lp-goods-row__item-checkbox
                             label.radio(v-for="(color,index) in slide.colors" :key="index")
                                 input(type="radio" name="radio")
-                                span.check
+                                span.check(:style="{'backgroundColor': color.color}")
                         .lp-goods-row__item-price {{ slide.price }} р.
                         .lp-goods-row__item-button заказать
                         .lp-goods-row__item-amount
@@ -756,7 +756,6 @@ import FlipCountdown from 'vue2-flip-countdown';
         left: 0;
         height: 25px;
         width: 25px;
-        background-color: red;
         border-radius: 50%;
     }
 
@@ -786,7 +785,6 @@ import FlipCountdown from 'vue2-flip-countdown';
         width: 15px;
         height: 15px;
         border-radius: 50%;
-        background: red;
     }
 
 
