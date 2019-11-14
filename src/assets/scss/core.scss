@@ -8,4 +8,9 @@
 .lp-container {
   max-width: 1083px;
   margin: 0 auto;
+  @media screen and (max-width: 1100px) {
+    & {
+      max-width: 100%;
+    }
+  }
 }

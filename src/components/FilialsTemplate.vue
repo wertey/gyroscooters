@@ -82,6 +82,10 @@
             line-height: 46px;
             color: $mainTitleColor;
             text-align: center;
+            @media screen and (max-width: 767px) {
+                font-size: 20px;
+                line-height: 26px;
+            }
             &-text {
                 &_bold {
                     padding: 0 10px;
@@ -100,6 +104,12 @@
                 padding: 0 50px;
                 margin-bottom: 20px;
                 position: relative;
+                @media screen and (max-width: 1023px) {
+                    width: 50%;
+                }
+                @media screen and (max-width: 767px) {
+                    width: 100%;
+                }
                 &:before {
                     position: absolute;
                     content: '';

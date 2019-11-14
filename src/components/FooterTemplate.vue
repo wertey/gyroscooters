@@ -21,6 +21,11 @@
         height: 100%;
         min-height: 448px;
         padding-bottom: 40px;
+        @media screen and (max-width: 1023px) {
+            & {
+                min-height: auto;
+            }
+        }
         &__copyright {
             padding-top: 40px;
             color: $secondColor;
@@ -35,6 +40,21 @@
             img {
                 max-width: 100%;
                 height: auto;
+                @media screen and (max-width: 1199px) {
+                    & {
+                        max-width: 1000px;
+                    }
+                }
+                @media screen and (max-width: 1023px) {
+                    & {
+                        max-width: 700px;
+                    }
+                }
+                @media screen and (max-width: 767px) {
+                    & {
+                        max-width: 300px;
+                    }
+                }
             }
         }
     }

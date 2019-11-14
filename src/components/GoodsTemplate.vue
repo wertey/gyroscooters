@@ -21,7 +21,7 @@
                         .lp-goods-row__item-checkbox
                             label.radio(v-for="(color,index) in slide.colors" :key="index")
                                 input(type="radio" name="radio")
-                                span.check(:style="{'backgroundColor': color.color}")
+                                span.check(:style="{'background': color.color}")
                         .lp-goods-row__item-price {{ slide.price }} р.
                         .lp-goods-row__item-button заказать
                         .lp-goods-row__item-amount
@@ -119,7 +119,7 @@ import FlipCountdown from 'vue2-flip-countdown';
                                 color: 'orange'
                             },
                             {
-                                color: 'white'
+                                color: 'linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)'
                             },
                             {
                                 color: 'black'
@@ -197,10 +197,10 @@ import FlipCountdown from 'vue2-flip-countdown';
                                 color: 'red'
                             },
                             {
-                                color: 'white'
+                                color: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)'
                             },
                             {
-                                color: 'purpul'
+                                color: 'green'
                             },
                             {
                                 color: 'blue'
@@ -242,10 +242,10 @@ import FlipCountdown from 'vue2-flip-countdown';
                                 color: 'red'
                             },
                             {
-                                color: 'white'
+                                color: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,56,1) 35%, rgba(0,212,255,1) 100%)'
                             },
                             {
-                                color: 'purple'
+                                color: 'orange'
                             },
                             {
                                 color: 'blue'
@@ -291,7 +291,7 @@ import FlipCountdown from 'vue2-flip-countdown';
                                 color: 'red'
                             },
                             {
-                                color: 'white'
+                                color: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,56,1) 35%, rgba(0,212,255,1) 100%)'
                             },
                             {
                                 color: 'yellow'
@@ -333,7 +333,7 @@ import FlipCountdown from 'vue2-flip-countdown';
                                 color: 'black'
                             },
                             {
-                                color: 'white'
+                                color: 'radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)'
                             },
                             {
                                 color: 'red'
