@@ -8,10 +8,10 @@
                         .lp-goods-row__item-hit(v-if="slide.hit") ХИТ
                         .lp-goods-row__item-sale(v-if="slide.discount") -{{ slide.discount }}%
                         h4.lp-goods-row__item-title {{ slide.title }}
-                        agile.lp-goods-row__item-slider(ref="main" :options="options1" :as-nav-for="asNavFor1")
+                        agile.main.lp-goods-row__item-slider(ref="main" :options="options1" :as-nav-for="asNavFor1")
                             .lp-goods-row__item-slide(v-for="(slide, index) in slides", :key="index", :class="`slide--${index}`")
                                 img.lp-goods-row__item-img(:src="slide.src")
-                        agile.lp-goods-row__item-thumbnails(ref="thumbnails" :options="options2" :as-nav-for="asNavFor2")
+                        agile.thumbnails.lp-goods-row__item-thumbnails(ref="thumbnails" :options="options2" :as-nav-for="asNavFor2")
                             .lp-goods-row__item-slide.lp-goods-row__item-slide--thumbniail(v-for="(slide, index) in slides", :key="index", :class="`slide--${index}`" @click="$refs.thumbnails.goTo(index)")
                                 img(:src="slide.src")
                             template(slot="prevButton")
