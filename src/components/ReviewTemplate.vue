@@ -28,23 +28,61 @@
         &-block {
             background: url(../assets/images/border.png)no-repeat;
             margin-top: 100px;
+            @media screen and (max-width: 1199px) {
+                & {
+                    background-size: cover;
+                    max-width: 900px;
+                    margin: 100px auto 0;
+                }
+            }
             &__text {
                 padding: 55px 79px 130px 400px;
                 width: 100%;
                 height: auto;
                 font-size: 20px;
                 line-height: 34px;
+                @media screen and (max-width: 1199px) {
+                    & {
+                        padding: 20px 20px 133px;
+                    }
+                }
+                @media screen and (max-width: 1023px) {
+                    & {
+                        padding: 20px;
+                    }
+                }
             }
             &__img {
                 position: absolute;
                 top: -130px;
+                @media screen and (max-width: 1199px) {
+                    & {
+                        display: none;
+                    }
+                }
             }
         }
         &-row {
             display: flex;
             justify-content: flex-end;
+            @media screen and (max-width: 1199px) {
+                & {
+                    justify-content: center;
+                }
+            }
+            @media screen and (max-width: 1023px) {
+                & {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
             &-signature {
                 width: 33%;
+                @media screen and (max-width: 1023px) {
+                    & {
+                        width: 80%;
+                    }
+                }
             }
             &-signature {
                 font-family: 'Kobzar KS',sans-serif;
@@ -68,10 +106,41 @@
                     max-width: 251px;
                     text-align: end;
                 }
+                @media screen and (max-width: 1023px) {
+                    & {
+                        justify-content: center;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                    }
+                }
             }
             &-button {
                 width: 26%;
                 padding-right: 50px;
+                @media screen and (max-width: 1023px) {
+                    & {
+                        padding-right: 0;
+                        width: 30%;
+                        margin-bottom: 30px;
+                    }
+                }
+                @media screen and (max-width: 767px) {
+                    & {
+                        width: 40%;
+                    }
+                }
+                @media screen and (max-width: 519px) {
+                    & {
+                        width: 60%;
+                    }
+                }
+                @media screen and (max-width: 359px) {
+                    & {
+                        width: 80%;
+                    }
+                }
                 &__btn {
                     display: flex;
                     justify-content: center;
