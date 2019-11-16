@@ -56,16 +56,33 @@
     .lp-duty {
         width: 100%;
         background: url(../assets/images/stepsbg.png)no-repeat;
-        min-height: 600px;
-        padding-top: 50px;
+        min-height: 724px;
+        padding-top: 100px;
         padding-bottom: 60px;
+        background-size: cover;
         &-call {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
+            padding-bottom: 60px;
+            @media screen and (max-width: 767px) {
+                & {
+                    justify-content: center;
+                }
+            }
+            @media screen and (max-width: 767px) {
+                & {
+                    padding-bottom: 90px;
+                }
+            }
             &__arrow {
                 padding-top: 20px;
                 padding-left: 126px;
+                @media screen and (max-width: 767px) {
+                    & {
+                        display: none;
+                    }
+                }
             }
             &-button {
                 text-align: center;
@@ -73,6 +90,12 @@
                 display: flex;
                 padding-top: 62px;
                 padding-left: 28px;
+                @media screen and (max-width: 767px) {
+                    & {
+                        padding-left: 0;
+                        padding-top: 30px;
+                    }
+                }
                 &__btn {
                     height: 50px;
                     padding: 0 30px;
@@ -95,6 +118,12 @@
             font-size: 40px;
             line-height: 46px;
             color: $secondColor;
+            @media screen and (max-width: 519px) {
+                & {
+                    margin-top: 30px;
+                    font-size: 26px;
+                }
+            }
         }
         &-row {
             display: flex;
@@ -102,10 +131,35 @@
             flex-direction: row;
             padding-top: 75px;
             font-family: 'Open Sans',sans-serif;
+            @media screen and (max-width: 767px) {
+                & {
+                    flex-wrap: wrap;
+                }
+            }
+            @media screen and (max-width: 519px) {
+                & {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 30px;
+                }
+            }
             &__item {
                 position: relative;
                 width: 25%;
                 text-align: center;
+                @media screen and (max-width: 767px) {
+                    & {
+                        width: 40%;
+                        padding: 10px;
+                    }
+                }
+                @media screen and (max-width: 519px) {
+                    & {
+                        width: 80%;
+                        padding: 10px;
+                    }
+                }
                 &:after {
                     position: absolute;
                     content: '';
@@ -114,6 +168,11 @@
                     right: -34px;
                     top: 59px;
                     background: url(../assets/images/circles.png)no-repeat;
+                    @media screen and (max-width: 1023px) {
+                        & {
+                            display: none;
+                        }
+                    }
                 }
                 &:last-child:after {
                     display: none;
