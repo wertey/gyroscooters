@@ -9,7 +9,7 @@
                 .lp-review-row-button
                     .lp__button.lp-review-row-button__btn Написать руководителю
                 .lp-review-row-signature
-                    .lp-review-row-signature__name Борис Недильский
+                    .lp-review-row-signature__name  Boris Nydilskiy
                     .lp-review-row-signature__pos Борис Юрьевич Недильский Руководитель компании Wheely
 </template>
 
@@ -22,12 +22,12 @@
 <style scoped lang="scss">
     @import '../assets/scss/core.scss';
     .lp-review {
-        padding-top: 100px;
         width: 100%;
-        min-height: 660px;
+        min-height: 466px;
+        position: relative;
         &-block {
             background: url(../assets/images/border.png)no-repeat;
-            position: relative;
+            margin-top: 100px;
             &__text {
                 padding: 55px 79px 130px 400px;
                 width: 100%;
@@ -37,7 +37,7 @@
             }
             &__img {
                 position: absolute;
-                top: -121px;
+                top: -130px;
             }
         }
         &-row {
@@ -52,6 +52,7 @@
                     position: relative;
                     font-size: 40px;
                     line-height: 49px;
+                    font-family: 'Dancing Script', cursive;;
                     &:after {
                         position: absolute;
                         content: '';

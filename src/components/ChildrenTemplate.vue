@@ -22,7 +22,7 @@
     .lp-children {
         width: 100%;
         background: url(../assets/images/reviewbg.png)no-repeat;
-        min-height: 460px;
+        min-height: 350px;
         padding-top: 75px;
     &-block {
          max-width: 700px;
