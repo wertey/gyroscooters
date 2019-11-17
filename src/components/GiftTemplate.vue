@@ -16,10 +16,10 @@
                         .lp-gift-row-info__advantages-item Просты в использовании
                         .lp-gift-row-info__advantages-item Совместимы со всеми устройствами
                         .lp-gift-row-info__advantages-item Работают без проводов
-                    form(action="#").lp-form
-                        input(type="text").lp-form__input.lp-form__input_name(placeholder="Ваше имя")
-                        input(type="text").lp-form__input.lp-form__input_email(placeholder="Ваш телефон")
-                        button.lp-form__button Отправить
+                    form(action="#").lp-form.lp-gift-form
+                        input(type="text").lp-form__input.lp-form__input_name.lp-gift-form__input(placeholder="Ваше имя")
+                        input(type="text").lp-form__input.lp-form__input_email.lp-gift-form__input(placeholder="Ваш телефон")
+                        button.lp-form__button.lp-gift-form__button Отправить
 </template>
 
 <script>
@@ -36,14 +36,69 @@
         margin-top: -10px;
         width: 100%;
         background: url(../assets/images/giftbg.jpg)no-repeat;
+        background-size: cover;
+        @media screen and (max-width: 1023px) {
+            & {
+                padding-bottom: 180px;
+            }
+        }
+        &-form {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            @media screen and (max-width: 767px) {
+                & {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 80%;
+                    margin: 0 auto;
+                }
+            }
+            &__input {
+                @media screen and (max-width: 767px) {
+                    & {
+                        width: 100%;
+                    }
+                    & + & {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                        margin-left: 0;
+                    }
+                }
+            }
+            &__button {
+                @media screen and (max-width: 767px) {
+                    & {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
         &-row {
             display: flex;
             justify-content: flex-start;
             flex-direction: row;
+            @media screen and (max-width: 1199px) {
+                & {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
             &-img {
                 width: 30%;
                 color: $secondColor;
                 padding: 0 10px;
+                @media screen and (max-width: 767px) {
+                    & {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                    }
+                }
                 &__title {
                     font-family: 'Open Sans',sans-serif;
                     font-weight: bold;
@@ -51,13 +106,37 @@
                     line-height: 50px;
                     text-transform: uppercase;
                     background: url(../assets/images/formgiftbg.png)no-repeat;
+                    @media screen and (max-width: 767px) {
+                        & {
+                            background: none;
+                        }
+                    }
                 }
                 &__gift {
                     max-height: 180px;
+                    @media screen and (max-width: 767px) {
+                        & {
+                            display: block;
+                            margin: 0 auto;
+                            max-height: 100%;
+                        }
+                    }
                     & img {
                         position: relative;
                         left: -100px;
                         top: -98px;
+                        @media screen and (max-width: 767px) {
+                            & {
+                                left: 0;
+                                top: 0;
+                            }
+                        }
+                        @media screen and (max-width:520px) {
+                            & {
+                                max-width: 100%;
+                                height: auto;
+                            }
+                        }
                     }
                 }
                 &__desc {
@@ -65,6 +144,11 @@
                     line-height: 21px;
                     text-transform: uppercase;
                     font-family: 'Open Sans',sans-serif;
+                    @media screen and (max-width:374px) {
+                        & {
+                            text-align: center;
+                        }
+                    }
                 }
                 &__price {
                     font-family: 'Open Sans Bold',sans-serif;
@@ -93,6 +177,27 @@
                     line-height: 46px;
                     font-family: "Open Sans",sans-serif;
                     font-weight: 100;
+                    @media screen and (max-width: 1023px) {
+                        & {
+                            text-align: center;
+                            font-size: 36px;
+                            line-height: 38px;
+                            margin: 20px 0;
+                        }
+                    }
+                    @media screen and (max-width: 767px) {
+                        & {
+                            font-size: 26px;
+                            line-height: 30px;
+                            margin-top: 20px;
+                        }
+                    }
+                    @media screen and (max-width: 520px) {
+                        & {
+                            font-size: 22px;
+                            line-height: 26px;
+                        }
+                    }
                     &_uppercase {
                         text-transform: uppercase;
                         font-family: "Open Sans Bold",sans-serif;
@@ -105,6 +210,13 @@
                     flex-direction: row;
                     justify-content: flex-start;
                     padding-top: 15px;
+                    @media screen and (max-width: 1023px) {
+                        & {
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
                     &-item {
                         background: url(../assets/images/advantagesbg.png)no-repeat;
                         max-width: 170px;
@@ -128,6 +240,11 @@
                         }
                         & + & {
                             margin-left: 50px;
+                            @media screen and (max-width: 1023px) {
+                                & {
+                                    margin-left: 0;
+                                }
+                            }
                         }
                     }
                 }
