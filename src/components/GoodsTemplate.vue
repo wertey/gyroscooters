@@ -660,7 +660,7 @@ import FlipCountdown from 'vue2-flip-countdown';
             }
             &-row {
                 width: 100%;
-                background: url(../assets/images/topbg.jpg)no-repeat;
+                background: url(../assets/images/bggood.png)no-repeat;
                 background-position: center center;
                 display: flex;
                 justify-content: center;
