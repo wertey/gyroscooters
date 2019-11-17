@@ -433,6 +433,11 @@ import FlipCountdown from 'vue2-flip-countdown';
                         margin-right: 10px;
                     }
                 }
+                @media screen and (max-width:359px) {
+                    & {
+                        min-width: 318px;
+                    }
+                }
             }
             &__item {
                 max-width: 340px;

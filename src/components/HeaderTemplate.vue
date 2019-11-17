@@ -59,10 +59,26 @@ export default {
   .lp-header {
     width: 100%;
     background: url(../assets/images/headerbg.jpg)no-repeat;
-    background-size: 100%;
+    background-size: cover;
     height: 100vh;
     min-height: 1100px;
     padding-top: 65px;
+    background-position: center;
+      @media screen and (max-width: 1099px) {
+          padding: 0 20px;
+      }
+      @media screen and (max-width: 767px) {
+          background-position: right;
+          min-height: 1280px;
+      }
+      @media screen and (max-width: 520px) {
+          min-height: 1150px;
+      }
+      @media screen and (max-width:359px) {
+          & {
+              padding: 0;
+          }
+      }
     &__title {
       font-family: 'Open Sans',sans-serif;
       display: flex;
@@ -73,6 +89,26 @@ export default {
       margin-top: 75px;
       color: $mainTitleColor;
       text-transform: uppercase;
+        @media screen and (max-width: 1000px) {
+            & {
+                text-align: center;
+                display: block;
+            }
+        }
+        @media screen and (max-width: 767px) {
+            & {
+                max-width: 500px;
+                margin: 0 auto;
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+        @media screen and (max-width: 767px) {
+            & {
+                font-size: 30px;
+                line-height: 32px;
+            }
+        }
       &_bold {
         font-weight: bold;
         font-family: 'Open Sans Bold',sans-serif;
@@ -92,6 +128,10 @@ export default {
       display: flex;
       justify-content: center;
       font-weight: 400;
+        @media screen and (max-width: 520px) {
+            & {}
+            text-align: center;
+        }
     }
     &-row {
       display: flex;
@@ -149,9 +189,23 @@ export default {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+        @media screen and (max-width: 767px) {
+            & {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
       &-advantages {
         width: 33%;
         padding-top: 200px;
+          @media screen and (max-width: 1099px) {
+              width: 45%;
+          }
+          @media screen and (max-width: 767px) {
+              padding-top: 50px;
+              width: 80%;
+          }
         &__item {
           position: relative;
           padding-left: 50px;
@@ -180,6 +234,15 @@ export default {
         padding: 60px 20px;
         color: $secondColor;
         border-radius: 5px;
+          @media screen and (max-width: 1099px) {
+              min-width: 400px;
+          }
+          @media screen and (max-width: 1023px) {
+              min-width: 350px;
+          }
+          @media screen and (max-width: 359px) {
+              min-width: 300px;
+          }
         &__header-title, &__header-desc {
           text-align: center;
         }
