@@ -29,6 +29,7 @@
         background: url(../assets/images/helpbg.jpg)no-repeat;
         min-height: 460px;
         padding-top: 75px;
+        background-size: cover;
         &-block {
             max-width: 700px;
             display: flex;
