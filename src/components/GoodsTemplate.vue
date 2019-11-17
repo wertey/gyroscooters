@@ -382,6 +382,11 @@ import FlipCountdown from 'vue2-flip-countdown';
     .lp-goods {
         width: 100%;
         padding-bottom: 85px;
+        @media screen and (max-width: 767px) {
+            & {
+                padding-bottom: 10px;
+            }
+        }
         &__title {
             padding-top: 90px;
         }
@@ -421,6 +426,13 @@ import FlipCountdown from 'vue2-flip-countdown';
             &__wrap {
                 width: 33%;
                 margin-bottom: 20px;
+                @media screen and (max-width: 1100px) {
+                    & {
+                        min-width: 340px;
+                        margin-left: 10px;
+                        margin-right: 10px;
+                    }
+                }
             }
             &__item {
                 max-width: 340px;
@@ -431,6 +443,12 @@ import FlipCountdown from 'vue2-flip-countdown';
                 text-align: center;
                 padding-bottom: 40px;
                 position: relative;
+                @media screen and (max-width: 359px) {
+                    & {
+                        max-width: 300px;
+                        margin: auto;
+                    }
+                }
                 &-hit {
                     background: url(../assets/images/hit.png)no-repeat;
                     width: 80px;
@@ -563,6 +581,17 @@ import FlipCountdown from 'vue2-flip-countdown';
                 position: absolute;
                 right: 0;
                 bottom: 8px;
+                @media screen and (max-width: 767px) {
+                    & {
+                        right: 60px;
+                    }
+                }
+                @media screen and (max-width: 420px) {
+                    & {
+                        right: 30px;
+                        bottom: -40px;
+                    }
+                }
                 &__nums {
                     font-family: 'Open Sans',sans-serif;
                     font-size: 18px;
@@ -640,6 +669,17 @@ import FlipCountdown from 'vue2-flip-countdown';
                 text-transform: uppercase;
                 font-weight: bold;
                 text-align: center;
+                @media screen and (max-width: 520px) {
+                    & {
+                        font-size: 50px;
+                    }
+                }
+                @media screen and (max-width: 359px) {
+                    & {
+                        font-size: 40px;
+                        line-height: 45px;
+                    }
+                }
             }
             &__flip {
                 margin-top: 25px;
@@ -666,24 +706,90 @@ import FlipCountdown from 'vue2-flip-countdown';
                 justify-content: center;
                 flex-direction: row;
                 min-height: 440px;
+                @media screen and (max-width: 1100px) {
+                    & {
+                        flex-direction: column;
+                        align-items: center;
+                        background: none;
+                    }
+                }
                 &__item {
                     &_img {
                         padding-top: 100px;
                         width: 60%;
                         position: relative;
+                        @media screen and (max-width: 1100px) {
+                            & {
+                                order: 0;
+                            }
+                        }
+                        @media screen and (max-width: 767px) {
+                            & {
+                                width: 100%;
+                                padding-top: 50px;
+                            }
+                        }
                         img {
                             max-width: 470px;
                             height: auto;
                             position: relative;
                             left: 71px;
+                            @media screen and (max-width: 1100px) {
+                                & {
+                                    left: 0;
+                                }
+                            }
+                            @media screen and (max-width: 767px) {
+                                & {
+                                    left: -21px;
+                                }
+                            }
+                            @media screen and (max-width: 520px) {
+                                & {
+                                    max-width: 100%;
+                                }
+                            }
                         }
                     }
                     &_left {
                         position: relative;
                         left: 50px;
+                        @media screen and (max-width: 1100px) {
+                            & {
+                                order: 1;
+                                left: 0;
+                                text-align: center;
+                                width: 50%;
+                                display: flex;
+                                justify-content: center;
+                                flex-direction: column;
+                                align-items: center;
+                            }
+                        }
                     }
                     &_right {
                         padding-left: 110px;
+                        @media screen and (max-width: 1100px) {
+                            & {
+                                padding-left: 0;
+                                text-align: center;
+                                width: 50%;
+                                display: flex;
+                                justify-content: center;
+                                flex-direction: column;
+                                align-items: center;
+                            }
+                        }
+                        @media screen and (max-width: 767px) {
+                            & {
+                                margin-top: 20px;
+                            }
+                        }
+                        @media screen and (max-width: 420px) {
+                            & {
+                                margin-top: 70px;
+                            }
+                        }
                     }
                     &-text {
                         font-family: 'Open Sans',sans-serif;
@@ -694,6 +800,17 @@ import FlipCountdown from 'vue2-flip-countdown';
                         min-height: 141px;
                         max-width: 150px;
                         text-align: end;
+                        @media screen and (max-width: 1100px) {
+                            & {
+                                text-align: center !important;
+                                min-height: auto;
+                                padding: 10px;
+                                min-width: 200px;
+                                margin: 0 auto;
+                                display: flex;
+                                justify-content: center;
+                            }
+                        }
                         &_bag {
                             padding-top: 5px;
                         }
@@ -714,6 +831,12 @@ import FlipCountdown from 'vue2-flip-countdown';
                             padding-top: 10px;
                             max-width: 200px;
                             text-align: left;
+                            @media screen and (max-width: 1100px) {
+                                & {
+                                    max-width: 300px;
+                                    text-align: center;
+                                }
+                            }
                         }
                     }
                 }
