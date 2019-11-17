@@ -56,8 +56,7 @@
     .lp-duty {
         width: 100%;
         background: url(../assets/images/stepsbg.png)no-repeat;
-        /*min-height: 724px;*/
-        min-height: 895px;
+        min-height: 724px;
         padding-top: 100px;
         padding-bottom: 60px;
         background-size: cover;

@@ -46,6 +46,12 @@
         min-height: 880px;
         height: auto;
         color: $secondColor;
+        @media screen and (max-width: 1199px) {
+            & {
+                margin-top: -20px;
+                padding-bottom: 150px;
+            }
+        }
         &__title {
             font-family: 'Open Sans',sans-serif;
             font-size: 40px;
@@ -54,6 +60,12 @@
             text-align: center;
             max-width: 700px;
             margin: 0 auto;
+            @media screen and (max-width: 767px) {
+                & {
+                    font-size: 30px;
+                    line-height: 32px;
+                }
+            }
         }
         &__info {
             color: $differentColorText;
@@ -69,12 +81,30 @@
             display: flex;
             justify-content: flex-start;
             flex-direction: row;
+            @media screen and (max-width: 1199px) {
+                & {
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
             &__item {
                 &-block {
                     text-align: center;
                     padding: 40px 0 117px;
+                    @media screen and (max-width: 1199px) {
+                        & {
+                            padding-bottom: 20px;
+                            padding-top: 20px;
+                        }
+                    }
                     &_down {
-                        padding-bottom: 0px;
+                        padding-bottom: 0;
+                        @media screen and (max-width: 1199px) {
+                            & {
+                                padding-bottom: 20px;
+                            }
+                        }
                     }
                 }
                 &-title {
@@ -95,12 +125,60 @@
                     height: auto;
                     min-height: 479px;
                     width: 50%;
+                    @media screen and (max-width: 1199px) {
+                        & {
+                            order: 0;
+                            background-position: center;
+                        }
+                    }
+                    @media screen and (max-width: 1023px) {
+                        & {
+                            width: 100%;
+                        }
+                    }
+                    @media screen and (max-width: 599px) {
+                        & {
+                            background-size: cover;
+                        }
+                    }
+                    @media screen and (max-width: 519px) {
+                        & {
+                            background: url(../assets/images/gyro-mobile.png)no-repeat;
+                            background-position: center;
+                            min-height: 300px;
+                        }
+                    }
                 }
                 &_left {
                     width: 25%;
+                    @media screen and (max-width: 1199px) {
+                        & {
+                            order: 1;
+                        }
+                    }
+                    @media screen and (max-width: 1023px) {
+                        & {
+                            width: 50%;
+                        }
+                    }
+                    @media screen and (max-width: 519px) {
+                        & {
+                            width: 80%;
+                        }
+                    }
                 }
                 &_right {
                     width: 25%;
+                    @media screen and (max-width: 1023px) {
+                        & {
+                            width: 50%;
+                        }
+                    }
+                    @media screen and (max-width: 519px) {
+                        & {
+                            width: 80%;
+                        }
+                    }
                 }
 
             }
