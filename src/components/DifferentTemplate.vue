@@ -50,6 +50,7 @@
             & {
                 margin-top: -20px;
                 padding-bottom: 150px;
+                z-index: 9;
             }
         }
         &__title {
