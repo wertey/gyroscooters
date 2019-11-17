@@ -6,14 +6,12 @@
         .lp-header-row__desc Магазин гироскутеров с доставкой по всей России
         nav.lp-header-row__nav
           ul.lp-header-row__nav-list
-            li.lp-header-row__nav-item
-              a.lp-header-row__nav-link(href="#") Каталог
-            li.lp-header-row__nav-item
-              a.lp-header-row__nav-link(href="#") Отзывы
-            li.lp-header-row__nav-item
-              a.lp-header-row__nav-link(href="#") Доставка и оплата
-            li.lp-header-row__nav-item
-              a.lp-header-row__nav-link(href="#") Контакты и филиалы
+            li.lp-header-row__nav-item(v-for="(item,index) in menu" :key="index")
+              a.lp-header-row__nav-link(:href="item.href" @click="scrollTo()") {{ item.text }}
+        .lp-header-row__burger(@click="openCloseBurgerMenu()" ref="burger" :class="{'lp-header-row__burger_active' : modal}")
+            .lp-header-row__burger-line.lp-header-row__burger-line_top(ref="top" :class="{'active' : modal,'top' : modal}")
+            .lp-header-row__burger-line.lp-header-row__burger-line_center(ref="center" :class="{'active' : modal,'center' : modal}")
+            .lp-header-row__burger-line.lp-header-row__burger-line_bottom(ref="bottom" :class="{'active' : modal,'bottom' : modal}")
       h1.lp-header__title
         span.lp-header__title_bold Распродажа
         span.lp-header__title_light детских гироскутеров!
@@ -40,6 +38,11 @@
           .lp-header-main-amount
               img.lp-header-main-amount__img(src='../assets/images/goods.png')
               .lp-header-main-amount__text Моделей
+    .lp-header-modal(v-if="modal")
+        ul.lp-header-modal__nav-list
+            li.lp-header-modal__nav-item(v-for="(item,index) in menu" :key="index")
+                a.lp-header-modal__nav-link(:href="item.href") {{ item.text }}
+
 
 </template>
 
@@ -51,6 +54,58 @@ export default {
   components: {
     FlipCountdown,
   },
+    data() {
+      return {
+          menu: [
+              {
+                  text: 'Каталог',
+                  href: '#catalog'
+              },
+              {
+                  text: 'Отзывы',
+                  href: '#review'
+              },
+              {
+                  text: 'Доставка и оплата',
+                  href: '#delivery'
+              },
+              {
+                  text: 'Контакты и филиалы',
+                  href: '#contacts'
+              },
+          ],
+          modal: false,
+          setTimeoutId: -1,
+      }
+    },
+    methods: {
+        openCloseBurgerMenu() {
+            const res = (this.modal === false) ? this.modal = true : this.modal = false;
+            return res
+        },
+        scrollTo(element, to, duration, clear) {
+            if (duration === 0) {
+                return
+            }
+            if (to < 0) to = 0
+            let difference = to - element.scrollY
+            let perTick = difference / duration * 10
+            if (clear) {
+                clearTimeout(this.setTimeoutId)
+            }
+            this.setTimeoutId = setTimeout( () => {
+                let newTop = element.scrollY + perTick
+                if (newTop < 0) newTop = 0
+                element.scrollTo({
+                    top: newTop
+                })
+                if (newTop === 0) return false
+                if (element.scrollY === to) return
+                this.scrollTo(element, to, duration - 10)
+            }, 10)
+            return this.modal = false;
+        },
+    }
 };
 </script>
 
@@ -65,7 +120,7 @@ export default {
     padding-top: 65px;
     background-position: center;
       @media screen and (max-width: 1099px) {
-          padding: 0 20px;
+          padding: 65px 20px 0;
       }
       @media screen and (max-width: 767px) {
           background-position: right;
@@ -76,7 +131,43 @@ export default {
       }
       @media screen and (max-width:359px) {
           & {
-              padding: 0;
+              padding-top: 10px;
+              padding-left: 10px;
+              padding-right: 10px;
+          }
+      }
+      &-modal {
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          background: $modalBgColor;
+          z-index: 10;
+          &__nav {
+              &-list {
+                  display: flex;
+                  justify-content: center;
+                  flex-direction: column;
+                  align-items: center;
+                  width: 100%;
+                  height: 100%;
+              }
+              &-item {
+                  padding: 20px;
+                  text-align: center;
+              }
+              &-link {
+                  color: $secondColor;
+                  text-decoration: none;
+                  font-size: 40px;
+                  transition: all .4s ease-in;
+                  &:hover {
+                    color: $bgOfBtn;
+                  }
+              }
           }
       }
     &__title {
@@ -129,8 +220,9 @@ export default {
       justify-content: center;
       font-weight: 400;
         @media screen and (max-width: 520px) {
-            & {}
-            text-align: center;
+            & {
+                text-align: center;
+            }
         }
     }
     &-row {
@@ -140,6 +232,38 @@ export default {
       padding-bottom: 20px;
       border-bottom: 1px solid $borderHeaderColor;
       align-items: center;
+        @media screen and (max-width: 479px) {
+            & {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        &__burger {
+            cursor: pointer;
+            width: auto;
+            margin: 0 auto;
+            transition: all .7s ease;
+            position: absolute;
+            right: 20px;
+            display: none;
+            z-index: 11;
+            &_active {
+                position: fixed;
+            }
+            @media screen and (max-width: 1079px) {
+                & {
+                    display: inline-block;
+                }
+            }
+            &-line {
+                display: block;
+                height: 5px;
+                width: 50px;
+                background: $main-color;
+                margin: 10px auto;
+                transition: all .7s ease;
+            }
+        }
       &__logo {
         text-transform: uppercase;
         font-size: 38px;
@@ -153,9 +277,19 @@ export default {
         max-width: 220px;
         padding: 0 0 0 30px;
         width: 100%;
+          @media screen and (max-width: 479px) {
+              & {
+                  padding-left: 0;
+              }
+          }
       }
       &__nav {
         margin-left: auto;
+          @media screen and (max-width: 1079px) {
+              & {
+                  display: none;
+              }
+          }
         &-list {
           display: flex;
           flex-direction: row;
@@ -336,4 +470,21 @@ export default {
       }
     }
   }
+
+  .top {
+      transform: translateY(15px) rotateZ(45deg);
+  }
+
+  .center {
+      width: 0;
+  }
+
+  .bottom {
+      transform: translateY(-15px) rotateZ(-45deg);
+  }
+
+  .active {
+      background: $secondColor;
+  }
+
 </style>

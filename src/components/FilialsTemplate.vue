@@ -1,5 +1,5 @@
 <template lang="pug">
-    .lp-filials
+    .lp-filials(id="contacts")
         .lp-container
             h2.lp-filials__title
                 span.lp-filials__title-text Наши филиалы

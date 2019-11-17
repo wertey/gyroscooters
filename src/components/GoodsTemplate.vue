@@ -1,5 +1,5 @@
 <template lang="pug">
-    .lp-goods
+    .lp-goods(id="catalog")
         .lp-container
             h2.lp__title.lp-goods__title Каталог детских гироскутеров
             .lp-goods-row

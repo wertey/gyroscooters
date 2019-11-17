@@ -1,5 +1,5 @@
 <template lang="pug">
-    .lp-duty
+    .lp-duty(id="delivery")
         .lp-container
             h2.lp-duty__title Как мы работаем
             .lp-duty-row
