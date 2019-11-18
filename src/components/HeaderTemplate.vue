@@ -7,7 +7,7 @@
         nav.lp-header-row__nav
           ul.lp-header-row__nav-list
             li.lp-header-row__nav-item(v-for="(item,index) in menu" :key="index")
-              a.lp-header-row__nav-link(:href="item.href" @click="scrollTo()") {{ item.text }}
+              a.lp-header-row__nav-link(:href="item.href" @click="scrollToSection()") {{ item.text }}
         .lp-header-row__burger(@click="openCloseBurgerMenu()" ref="burger" :class="{'lp-header-row__burger_active' : modal}")
             .lp-header-row__burger-line.lp-header-row__burger-line_top(ref="top" :class="{'active' : modal,'top' : modal}")
             .lp-header-row__burger-line.lp-header-row__burger-line_center(ref="center" :class="{'active' : modal,'center' : modal}")
@@ -116,6 +116,14 @@ export default {
                 if (element.scrollY === to) return
                 this.scrollTo(element, to, duration - 10)
             }, 10)
+        },
+        scrollToSection: function () {
+            let anchorBlock = document.getElementById('catalog')
+            let offsetTop = anchorBlock.offsetTop
+            // if (document.documentElement.clientWidth < 1100) {
+            //     offsetTop += 90
+            // }
+            this.scrollTo(window, 3500, 'clear')
         },
     }
 };
