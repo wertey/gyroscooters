@@ -38,10 +38,10 @@
           .lp-header-main-amount
               img.lp-header-main-amount__img(src='../assets/images/goods.png')
               .lp-header-main-amount__text Моделей
-    .lp-header-modal(v-if="modal")
+    .lp-header-modal(v-if="modal" ref="modal")
         ul.lp-header-modal__nav-list
             li.lp-header-modal__nav-item(v-for="(item,index) in menu" :key="index")
-                a.lp-header-modal__nav-link(:href="item.href") {{ item.text }}
+                a.lp-header-modal__nav-link(:href="item.href" @click="closeMenu()") {{ item.text }}
 
 
 </template>
@@ -83,6 +83,19 @@ export default {
             const res = (this.modal === false) ? this.modal = true : this.modal = false;
             return res
         },
+        closeMenu() {
+            const modal = this.$refs.modal;
+            const burger = this.$refs.burger;
+            const top = this.$refs.top;
+            const center = this.$refs.center;
+            const bottom = this.$refs.bottom;
+            modal.style.display = 'none';
+            top.classList.remove('top','active');
+            center.classList.remove('center','active');
+            bottom.classList.remove('bottom','active');
+            burger.style.position = 'absolute';
+
+        },
         scrollTo(element, to, duration, clear) {
             if (duration === 0) {
                 return
@@ -103,7 +116,6 @@ export default {
                 if (element.scrollY === to) return
                 this.scrollTo(element, to, duration - 10)
             }, 10)
-            return this.modal = false;
         },
     }
 };
