@@ -16,7 +16,7 @@
         span.lp-header__title_bold Распродажа
         span.lp-header__title_light детских гироскутеров!
       h2.lp-header__desc До завершения распродажи осталось:
-      flip-countdown(deadline="2019-12-25 00:00:00")
+      flip-countdown(deadline="2019-12-25 00:00:00" :property="property")
       .lp-header-main
         .lp-header-main-advantages
           .lp-header-main-advantages__item Бесплатная доставка в течении 3-х часов
@@ -76,6 +76,7 @@ export default {
           ],
           modal: false,
           setTimeoutId: -1,
+          property: ['ДНЕЙ','ЧАСОВ','МИНУТ','СЕКУНД']
       }
     },
     methods: {
@@ -96,34 +97,34 @@ export default {
             burger.style.position = 'absolute';
 
         },
-        scrollTo(element, to, duration, clear) {
+        scrollTo: function (element, to, duration, clear) {
             if (duration === 0) {
                 return
             }
-            if (to < 0) to = 0
-            let difference = to - element.scrollY
-            let perTick = difference / duration * 10
+            if (to < 0) to = 0;
+            let difference = to - element.scrollY;
+            let perTick = difference / duration * 10;
             if (clear) {
                 clearTimeout(this.setTimeoutId)
             }
             this.setTimeoutId = setTimeout( () => {
-                let newTop = element.scrollY + perTick
-                if (newTop < 0) newTop = 0
+                let newTop = element.scrollY + perTick;
+                if (newTop < 0) newTop = 0;
                 element.scrollTo({
                     top: newTop
                 })
-                if (newTop === 0) return false
-                if (element.scrollY === to) return
-                this.scrollTo(element, to, duration - 10)
+                if (newTop === 0) return false;
+                if (element.scrollY === to) return;
+                this.scrollTo(element, to, duration - 10);
             }, 10)
         },
         scrollToSection: function () {
-            let anchorBlock = document.getElementById('catalog')
-            let offsetTop = anchorBlock.offsetTop
-            // if (document.documentElement.clientWidth < 1100) {
-            //     offsetTop += 90
-            // }
-            this.scrollTo(window, 3500, 'clear')
+            let anchorBlock = document.getElementById('spins');
+            let offsetTop = anchorBlock.offsetTop;
+            if (document.documentElement.clientWidth < 1100) {
+                offsetTop += 90;
+            }
+            this.scrollTo(window, offsetTop, 500, 'clear');
         },
     }
 };
@@ -232,6 +233,7 @@ export default {
     }
     &__desc {
       margin-top: 30px;
+      margin-bottom: 15px;
       font-size: 20px;
       line-height: 23px;
       color: $mainTitleColor;
