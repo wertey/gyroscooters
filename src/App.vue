@@ -2,7 +2,7 @@
   #app
     HeaderTemplate
     GiftTemplate
-    GoodsTemplate
+    //GoodsTemplate
     HelpTemplate
     DifferentTemplate
     MoviesTemplate

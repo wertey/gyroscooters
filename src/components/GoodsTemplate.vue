@@ -53,19 +53,17 @@
                         .lp-goods-top-row__item-text.lp-goods-top-row__item-text_vers Гироскоп Ver 3.0
                         .lp-goods-top-row__item-text.lp-goods-top-row__item-text_last Последняя версия материнской платы
                 h3.lp-goods-top__flip До завершения распродажи осталось:
-                FlipCountdown.lp-goods-top__countdown(deadline="2019-12-25 00:00:00")
 </template>
 
 <script>
 
 import VueAgile from 'vue-agile';
-import FlipCountdown from 'vue2-flip-countdown';
+
 
     export default {
         name: "GoodsTemplate",
         components: {
             VueAgile,
-            FlipCountdown,
         },
         data () {
             return {

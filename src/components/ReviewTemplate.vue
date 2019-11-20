@@ -35,6 +35,19 @@
                     margin: 100px auto 0;
                 }
             }
+            @media screen and (max-width: 1050px) {
+                & {
+                    background: none;
+                    border: 3px solid $counterSecondColor;
+                    margin-bottom: 30px;
+                    max-width: 90%;
+                }
+            }
+            @media screen and (max-width: 767px) {
+                & {
+                    margin-top: 50px;
+                }
+            }
             &__text {
                 padding: 55px 79px 130px 400px;
                 width: 100%;
@@ -46,9 +59,21 @@
                         padding: 20px 20px 133px;
                     }
                 }
-                @media screen and (max-width: 1023px) {
+                @media screen and (max-width: 1050px) {
                     & {
                         padding: 20px;
+                    }
+                }
+                @media screen and (max-width: 767px) {
+                    & {
+                        padding: 5px;
+                    }
+                }
+                @media screen and (max-width: 359px) {
+                    & {
+                        padding: 10px;
+                        font-size: 18px;
+                        line-height: 20px;
                     }
                 }
             }

@@ -15,7 +15,7 @@
     "vue": "^2.6.10",
     "vue-agile": "^1.0.11",
     "vue-cli-plugin-pug": "^1.0.7",
-    "vue2-flip-countdown": "^0.9.3"
+    "vuejs-countdown-timer": "^2.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.0.0",

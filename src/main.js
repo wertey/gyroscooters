@@ -1,12 +1,11 @@
-import VueCountdown from '@chenfengyuan/vue-countdown';
 import VueAgile from 'vue-agile';
+import VueCountdownTimer from 'vuejs-countdown-timer'
 import Vue from 'vue';
 import App from './App.vue';
 
 
-Vue.component(VueCountdown.name, VueCountdown);
 Vue.use(VueAgile)
-
+Vue.use(VueCountdownTimer)
 Vue.config.productionTip = false;
 
 new Vue({
