@@ -55,7 +55,6 @@
             li.lp-header-modal__nav-item(v-for="(item,index) in menu" :key="index")
                 a.lp-header-modal__nav-link(:href="item.href" @click="closeMenu()") {{ item.text }}
 
-
 </template>
 
 <script>
