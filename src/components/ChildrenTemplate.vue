@@ -5,7 +5,7 @@
                 h2.lp-children-block__title Оставьте отзыв с Вашими детьми
                 h3.lp-children-block__desc
                     span.lp-children-block__desc.lp-children-block__desc_bold  и получите подарок!
-                form(action="#").lp-form.lp-children-block-form
+                form(action="#" id="review").lp-form.lp-children-block-form
                     input(type="text").lp-form__input.lp-form__input_name.lp-children-block-form__input(placeholder="Ваше имя")
                     input(type="text").lp-form__input.lp-form__input_email.lp-children-block-form__input(placeholder="Ваш телефон")
                     button.lp-form__button.lp-children-block-form__button Отправить

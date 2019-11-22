@@ -7,7 +7,7 @@
         nav.lp-header-row__nav
           ul.lp-header-row__nav-list
             li.lp-header-row__nav-item(v-for="(item,index) in menu" :key="index")
-              a.lp-header-row__nav-link(:href="item.href" @click="scrollToSection()") {{ item.text }}
+              a.lp-header-row__nav-link(href="#" v-scroll-to="item.href") {{ item.text }}
         .lp-header-row__burger(@click="openCloseBurgerMenu()" ref="burger" :class="{'lp-header-row__burger_active' : modal}")
             .lp-header-row__burger-line.lp-header-row__burger-line_top(ref="top" :class="{'active' : modal,'top' : modal}")
             .lp-header-row__burger-line.lp-header-row__burger-line_center(ref="center" :class="{'active' : modal,'center' : modal}")
@@ -16,9 +16,11 @@
         span.lp-header__title_bold Распродажа
         span.lp-header__title_light детских гироскутеров!
       h2.lp-header__desc До завершения распродажи осталось:
-      timerTemplate(starttime='Nov 5, 2019 15:37:25', endtime='Nov 28, 2019 16:37:25')
+      countdown(:time='2 * 24 * 60 * 60 * 1000')
+        template(slot-scope='props')
+            Time Remaining：{{ props.days }} days, {{ props.hours }} hours, {{ props.minutes }} minutes, {{ props.seconds }} seconds.
       .lp-header-main
-        .lp-header-main-advantages
+        .lp-header-main-advantagescountdown
           .lp-header-main-advantages__item Бесплатная доставка в течении 3-х часов
           .lp-header-main-advantages__item Гарантия 1 год
         form.lp-header-main-form
@@ -46,12 +48,11 @@
 </template>
 
 <script>
-    import timerTemplate from '../components/timerTemplate.vue'
-
+    import countdown from '@chenfengyuan/vue-countdown';
 export default {
   name: 'NavigationTemplate',
   components: {
-      timerTemplate,
+      countdown ,
   },
     data() {
       return {
@@ -75,7 +76,6 @@ export default {
           ],
           modal: false,
           setTimeoutId: -1,
-          property: ['ДНЕЙ','ЧАСОВ','МИНУТ','СЕКУНД']
       }
     },
     methods: {
@@ -100,38 +100,24 @@ export default {
             if (duration === 0) {
                 return
             }
-            if (to < 0) to = 0;
-            let difference = to - element.scrollY;
-            let perTick = difference / duration * 10;
+            if (to < 0) to = 0
+            let difference = to - element.scrollY
+            let perTick = difference / duration * 10
             if (clear) {
                 clearTimeout(this.setTimeoutId)
             }
             this.setTimeoutId = setTimeout( () => {
-                let newTop = element.scrollY + perTick;
-                if (newTop < 0) newTop = 0;
+                let newTop = element.scrollY + perTick
+                if (newTop < 0) newTop = 0
                 element.scrollTo({
                     top: newTop
                 })
-                if (newTop === 0) return false;
-                if (element.scrollY === to) return;
-                this.scrollTo(element, to, duration - 10);
+                if (newTop === 0) return false
+                if (element.scrollY === to) return
+                this.scrollTo(element, to, duration - 10)
             }, 10)
         },
-        scrollToSection: function () {
-            let anchorBlock = document.getElementById('spins');
-            let offsetTop = anchorBlock.offsetTop;
-            if (document.documentElement.clientWidth < 1100) {
-                offsetTop += 90;
-            }
-            this.scrollTo(window, offsetTop, 500, 'clear');
-        },
-        startCallBack: function (x) {
-            console.log(x)
-        },
-        endCallBack: function (x) {
-            console.log(x)
-        }
-    }
+    },
 };
 </script>
 
