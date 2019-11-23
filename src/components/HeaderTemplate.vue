@@ -15,10 +15,8 @@
       h1.lp-header__title
         span.lp-header__title_bold Распродажа
         span.lp-header__title_light детских гироскутеров!
-      h2.lp-header__desc До завершения распродажи осталось:
-      countdown(:time='2 * 24 * 60 * 60 * 1000')
-        template(slot-scope='props')
-            Time Remaining：{{ props.days }} days, {{ props.hours }} hours, {{ props.minutes }} minutes, {{ props.seconds }} seconds.
+      h2.lp-header__desc До завершения распродажи осталось:)
+      FlipClock(:options="options")
       .lp-header-main
         .lp-header-main-advantagescountdown
           .lp-header-main-advantages__item Бесплатная доставка в течении 3-х часов
@@ -48,11 +46,12 @@
 </template>
 
 <script>
-    import countdown from '@chenfengyuan/vue-countdown';
+
+    import { FlipClock } from '@mvpleung/flipclock';
 export default {
   name: 'NavigationTemplate',
   components: {
-      countdown ,
+      FlipClock
   },
     data() {
       return {
@@ -75,7 +74,14 @@ export default {
               },
           ],
           modal: false,
-          setTimeoutId: -1,
+          options: {
+              digit: 3000000,
+              countdown: true,
+              showDays: true,
+              language: 'ru',
+              clockFace: 'DailyCounter',
+              divider: false,
+          }
       }
     },
     methods: {
@@ -95,27 +101,6 @@ export default {
             bottom.classList.remove('bottom','active');
             burger.style.position = 'absolute';
 
-        },
-        scrollTo: function (element, to, duration, clear) {
-            if (duration === 0) {
-                return
-            }
-            if (to < 0) to = 0
-            let difference = to - element.scrollY
-            let perTick = difference / duration * 10
-            if (clear) {
-                clearTimeout(this.setTimeoutId)
-            }
-            this.setTimeoutId = setTimeout( () => {
-                let newTop = element.scrollY + perTick
-                if (newTop < 0) newTop = 0
-                element.scrollTo({
-                    top: newTop
-                })
-                if (newTop === 0) return false
-                if (element.scrollY === to) return
-                this.scrollTo(element, to, duration - 10)
-            }, 10)
         },
     },
 };
@@ -499,5 +484,6 @@ export default {
   .active {
       background: $secondColor;
   }
+
 
 </style>

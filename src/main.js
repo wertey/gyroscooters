@@ -1,11 +1,9 @@
 import VueAgile from 'vue-agile';
-import VueCountdownTimer from 'vuejs-countdown-timer'
 import Vue from 'vue';
 import App from './App.vue';
 var VueScrollTo = require('vue-scrollto');
-import VueCountdown from '@chenfengyuan/vue-countdown';
 
-Vue.component(VueCountdown.name, VueCountdown);
+
 Vue.config.productionTip = false;
 
 Vue.use(VueAgile)
