@@ -4,7 +4,6 @@
 @import "_form";
 @import "_title";
 @import "_buttons";
-@import "_counterdown";
 
 .lp-container {
   max-width: 1083px;
@@ -14,4 +13,8 @@
       max-width: 100%;
     }
   }
+}
+
+.flip-clock-divider .flip-clock-label {
+  top: 6.5em;
 }

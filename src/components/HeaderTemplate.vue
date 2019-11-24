@@ -108,6 +108,13 @@ export default {
 
 <style scoped lang="scss">
   @import '../assets/scss/core.scss';
+
+  .flip-clock-label{ display: none !important; }
+
+  .flip-clock-wrapper ul.play li.flip-clock-active .up .shadow {
+      background: red;
+  }
+
   .lp-header {
     width: 100%;
     background: url(../assets/images/headerbg.jpg)no-repeat;
