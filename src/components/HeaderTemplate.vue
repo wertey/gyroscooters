@@ -16,7 +16,7 @@
         span.lp-header__title_bold Распродажа
         span.lp-header__title_light детских гироскутеров!
       h2.lp-header__desc До завершения распродажи осталось:)
-      .lp-flipclock
+      .lp-flipclock.lp-header-flipclock
         FlipClock(:options="options")
       .lp-header-main
         .lp-header-main-advantagescountdown
@@ -109,18 +109,6 @@ export default {
 
 <style scoped lang="scss">
   @import '../assets/scss/core.scss';
-
-
-  .lp-header .flip-clock .flip-clock-wrapper {
-      background: red !important;
-  }
-
-  .flip-clock-label{ display: none !important; }
-
-  .flip-clock-wrapper ul.play li.flip-clock-active .up .shadow {
-
-  }
-
   .lp-header {
     width: 100%;
     background: url(../assets/images/headerbg.jpg)no-repeat;
@@ -131,13 +119,11 @@ export default {
     background-position: center;
       @media screen and (max-width: 1099px) {
           padding: 65px 20px 0;
+          min-height: 1200px;
       }
       @media screen and (max-width: 767px) {
           background-position: right;
-          min-height: 1280px;
-      }
-      @media screen and (max-width: 520px) {
-          min-height: 1150px;
+          min-height: 1100px;
       }
       @media screen and (max-width:359px) {
           & {
@@ -230,9 +216,9 @@ export default {
       display: flex;
       justify-content: center;
       font-weight: 400;
-        @media screen and (max-width: 520px) {
+        @media screen and (max-width: 767px) {
             & {
-                text-align: center;
+                display: none;
             }
         }
     }
@@ -481,6 +467,13 @@ export default {
           }
       }
     }
+      &-flipclock {
+          @media screen and (max-width: 767px) {
+            & {
+              display: none;
+            }
+         }
+      }
   }
 
   .top {
@@ -499,9 +492,6 @@ export default {
       background: $secondColor;
   }
 
-  .lp-header__flipclock .flip-clock-wrapper ul.play li.flip-clock-before .down .shadow {
-      background: yellowgreen !important;
-  }
 
 
 </style>
