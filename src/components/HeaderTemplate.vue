@@ -16,7 +16,8 @@
         span.lp-header__title_bold Распродажа
         span.lp-header__title_light детских гироскутеров!
       h2.lp-header__desc До завершения распродажи осталось:)
-      FlipClock(:options="options")
+      .lp-flipclock
+        FlipClock(:options="options")
       .lp-header-main
         .lp-header-main-advantagescountdown
           .lp-header-main-advantages__item Бесплатная доставка в течении 3-х часов
@@ -47,7 +48,7 @@
 
 <script>
 
-    import { FlipClock } from '@mvpleung/flipclock';
+    import  {FlipClock}  from '@mvpleung/flipclock';
 export default {
   name: 'NavigationTemplate',
   components: {
@@ -109,10 +110,15 @@ export default {
 <style scoped lang="scss">
   @import '../assets/scss/core.scss';
 
+
+  .lp-header .flip-clock .flip-clock-wrapper {
+      background: red !important;
+  }
+
   .flip-clock-label{ display: none !important; }
 
   .flip-clock-wrapper ul.play li.flip-clock-active .up .shadow {
-      background: red;
+
   }
 
   .lp-header {
@@ -328,6 +334,7 @@ export default {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+        margin-top: 50px;
         @media screen and (max-width: 767px) {
             & {
                 flex-direction: column;
@@ -491,5 +498,10 @@ export default {
   .active {
       background: $secondColor;
   }
+
+  .lp-header__flipclock .flip-clock-wrapper ul.play li.flip-clock-before .down .shadow {
+      background: yellowgreen !important;
+  }
+
 
 </style>
